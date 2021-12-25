@@ -11,8 +11,6 @@ export default class ForgotPasswordController {
       email,
     });
 
-    console.log(email);
-
     return response.status(204).json();
   }
 }
