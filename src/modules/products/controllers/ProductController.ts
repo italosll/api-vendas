@@ -22,7 +22,7 @@ export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, price, quantity } = request.body;
     const createProduct = new CreateProductService();
-    const product = createProduct.execute({
+    const product = await createProduct.execute({
       name,
       price,
       quantity,
