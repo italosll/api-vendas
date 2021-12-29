@@ -1,10 +1,8 @@
 import { hash } from 'bcryptjs';
 import { Request, Response } from 'express';
-import CreateUserService from '../services/CreateUserService';
-import ListUserService from '../services/ListUserService';
 import ShowProfileService from '../services/ShowProfileService';
 import UpdateProfileService from '../services/UpdateProfileService';
-
+import { classToClass } from 'class-transformer';
 export default class ProfileController {
   public async show(request: Request, response: Response): Promise<Response> {
     const showProfile = new ShowProfileService();
@@ -12,7 +10,7 @@ export default class ProfileController {
 
     const user = await showProfile.execute({ user_id });
 
-    return response.json(user);
+    return response.json(classToClass(user));
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
