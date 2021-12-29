@@ -23,14 +23,14 @@ class OrdersProducts {
   @JoinColumn({ name: 'product_id' })
   product: Product;
 
-  @Column('decimal')
+  @Column()
   product_id: string;
 
-  @Column('decimal')
+  @Column()
   order_id: string;
 
   @Column('decimal')
-  customer: number;
+  price: number;
 
   @Column('int')
   quantity: number;
